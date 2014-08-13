@@ -18,7 +18,7 @@ def chuli(inparams):
         if lines[findex].startswith('==') and findex + 4 < len(lines) :
             detail['id'] = random.randint(99999,999999)
             detail['title'] = re.search("《(.*)》", lines[findex + 1]).group(1)
-            detail['author'] = lines[findex + 2].split('：')[1]
+            detail['author'] = lines[findex + 2].split('：')[1].strip('\r\n')
             poemcontent = ""
             subindex = findex + 4
             while( not lines[subindex].startswith("\r\n")):
