@@ -34,7 +34,8 @@ def tosql(poemlist):
     host = "127.0.0.1"
     user = "root"
     password = "fengmao"
-    conn = MySQLdb.connect(host=host,user=user,passwd=password,db='cp',charset='utf8')
+    db = 'app_redwallcofee65'
+    conn = MySQLdb.connect(host=host,user=user,passwd=password,db=db,charset='utf8')
     cur = conn.cursor()
     cur.execute("set names utf8")
     for xpoem in poemlist:
