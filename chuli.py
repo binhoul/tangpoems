@@ -33,8 +33,8 @@ def chuli(inparams):
 def tosql(poemlist):
     host = "127.0.0.1"
     user = "root"
-    password = "fengmao"
-    db = 'app_redwallcofee65'
+    password = "fxngmao"
+    db = 'axp_redwallcofee65'
     conn = MySQLdb.connect(host=host,user=user,passwd=password,db=db,charset='utf8')
     cur = conn.cursor()
     cur.execute("set names utf8")
