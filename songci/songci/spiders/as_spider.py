@@ -31,7 +31,7 @@ class SongciSpider(Spider):
         del contents_text[0]
         for xcontent in contents_text:
             item['content'] = ''.join([item['content'],xcontent.extract().strip(),'\r\n'])
-        item['content'].strip('\r\n')
+        item['content'] = item['content'].strip('\r\n')
         return item
 
         

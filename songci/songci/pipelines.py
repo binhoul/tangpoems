@@ -29,7 +29,7 @@ class MySQLStorePipeline(object):
 
     def process_item(self, item, spider):
         query = self.dbpool.runInteraction(self._conditional_insert, item)
-        query.addErrback(self.handle_error)
+#        query.addErrback(self.handle_error)
         return item
   
     def _conditional_insert(self, tx, item):
