@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+import MySQLdb
+
+class SongciPipeline(object):
+    def __init__(self):
+        host = '127.0.0.1'
+        user = 'root'
+        password = 'fengmao'
+        database = 'app_redwallcofee65'
+        port = '3306'
+        charset = 'utf8'
+        self.conn = MySQLdb.connect(host=host,user=user,passwd=password,database=database,port=port,charset=charset)
+        self.cur = self.conn.cursor()
+    def process_item(self, item, spider):
+        sql = 'insert into songc(title,author,url,content) values (%s,%s,%s,%s)' %(item['title'],item['author'],item['url'],item['content'])        
+        try:
+            self.cur.execute(sql)
+        except MySQLdb.Error ,e:
+            print "insert error: " + e.args[1]
+
